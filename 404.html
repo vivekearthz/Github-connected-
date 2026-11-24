@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="0; url=./" />
+    <title>Redirecting</title>
+  </head>
+  <body>
+    <p>Page not found. Redirecting to the project home.</p>
+    <script>
+      var path = window.location.pathname;
+      var hostname = window.location.hostname;
+      var base = "./";
+
+      if (hostname.endsWith(".github.io")) {
+        var parts = path.split("/").filter(Boolean);
+        base = parts.length ? "/" + parts[0] + "/" : "/";
+      } else if (path !== "/404.html") {
+        base = "/";
+      }
+
+      window.location.replace(base);
+    </script>
+  </body>
+</html>
